@@ -1,5 +1,8 @@
 @echo THIS IS TEST CASE FOR ADDING MEMBER BY DOUBLE CLICK ON A BATCH FILE
 @echo PURPOSE: Adding member to Telegram group
+@echo Author: Ng-H Nam
+@echo Project: Telegram Bot
+@echo Description: Automatically, run adding functions in each terminal
 @echo ------------------------------------------------------------------     
 echo           
                         
