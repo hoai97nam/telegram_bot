@@ -1,4 +1,4 @@
-# telegram_automatic_tool
+# telegram_automatic_tools
 (everything about telegram bot)
 
 Repository is separated in to many purposes such as: 
