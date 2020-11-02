@@ -1,6 +1,6 @@
 ## This site contains Check follow source:
-- Get latest urls in group
-- Write in to file.
-- Run check follow bot.
+- Get latest urls in group [file](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/get_mess.py).
+- Write in to [.txt](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/file_link.py) file.
+- Run check follow bot [file](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/follow_bot.py).
 
-:heart: go to original [source](https://github.com/hoai97nam/python-telegram-bot/tree/sub-telegram-bot/examples)
+:rocket: go to original [source](https://github.com/hoai97nam/python-telegram-bot/tree/sub-telegram-bot/examples)
