@@ -3,9 +3,9 @@
 
 Repository is separated in to many purposes such as: 
 
-- Scrape members from customed group.
-- Add members after scraping from previous step to specify group.
-- Add members after scarping to channel.
+:white_check_mark: Scrape members from customed group.
+:white_check_mark: Add members after scraping from previous step to specify group.
+:white_check_mark: Add members after scarping to channel.
 
 Additional content:
 
