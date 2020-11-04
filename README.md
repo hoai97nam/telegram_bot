@@ -13,7 +13,7 @@ Repository is separated in to many purposes such as:
 
 - For running simultaneously in addding member from group file with .BAT will help to do that.
 
-#### Packages/Libraries:
+#### 📚📂 Packages/Libraries:
 Install Python on your device (Window in my OS)
 
 `pip install Telethon==<latest_version>`
