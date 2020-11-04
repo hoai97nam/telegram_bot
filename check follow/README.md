@@ -5,4 +5,6 @@
 
 :point_right: Run check follow bot [file](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/echobot.py).
 
+:point_right: [Tool](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/auto_drop_tool.py) to drop vip account twice a day
+
 :rocket: go to original [source](https://github.com/hoai97nam/python-telegram-bot/tree/sub-telegram-bot/examples)
