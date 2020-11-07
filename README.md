@@ -1,13 +1,10 @@
-## :bookmark_tabs: telegram automatic tools
-(everything about telegram bot)
+# :bookmark_tabs: telegram automatic tools
 
-Repository is separated in to many purposes such as: 
+### :point_right: [Scrape](https://github.com/hoai97nam/telegram_bot/blob/master/scrape%20members/client_tele.py) members from customed group.
 
-:point_right: Scrape members from customed group.
+### :point_right: [Add](https://github.com/hoai97nam/telegram_bot/tree/master/add_member) members after scraping from previous step to specify group.
 
-:point_right: Add members after scraping from previous step to specify group.
-
-:point_right: Add members after scarping to channel.
+### :point_right: [Add](https://github.com/hoai97nam/telegram_bot/blob/master/add_member/add_mems_to_channel-public.py) members after scarping to channel.
 
 ### Additional content:
 
