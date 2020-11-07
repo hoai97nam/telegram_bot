@@ -15,6 +15,18 @@ Repository is separated in to many purposes such as:
 
 - 🌎 Change proxy when create new session help avoid banning from telegram, free proxies found [here](https://mtproto-proxy.fun/), code will be update later.
 
+Change proxy with this command:
+
+```
+client = TelegramClient(
+    phone,
+    api_id,
+    api_hash,
+    connection=connection.ConnectionTcpMTProxyRandomizedIntermediate,
+    proxy=('govir.imamatjome.me', 553, 'eecc84325ed8486dff37100a77777777776b65746161626f6e6c696e652e636f6d')
+)
+```
+
 #### 📚📂 Packages/Libraries:
 Install Python on your device (Window in my OS)
 
