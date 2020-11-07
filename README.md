@@ -13,6 +13,8 @@ Repository is separated in to many purposes such as:
 
 - For running simultaneously in addding member from group file with .BAT will help to do that.
 
+- 🌎 Change proxy when create new session help avoid banning from telegram, free proxies found [here](https://mtproto-proxy.fun/), code will be update later.
+
 #### 📚📂 Packages/Libraries:
 Install Python on your device (Window in my OS)
 
