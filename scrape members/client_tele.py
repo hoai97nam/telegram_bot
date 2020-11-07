@@ -17,7 +17,16 @@ api_id = 1324758
 api_hash = '2dab5e95d688ddfed63daf529d215e98'
 phone = '+84768458782'
 client = TelegramClient(phone, api_id, api_hash)
-
+"""
+# optional proxy 
+client = TelegramClient(
+    phone,
+    api_id,
+    api_hash,
+    connection=connection.ConnectionTcpMTProxyRandomizedIntermediate,
+    proxy=('govir.imamatjome.me', 553, 'eecc84325ed8486dff37100a77777777776b65746161626f6e6c696e652e636f6d')
+)
+"""
 client.connect()
 if not client.is_user_authorized():
     client.send_code_request(phone)
