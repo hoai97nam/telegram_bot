@@ -6,7 +6,7 @@
 
 Change proxy with this command:
 
-```
+```python
 client = TelegramClient(
     phone,
     api_id,
