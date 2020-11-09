@@ -1,7 +1,7 @@
 ### :clipboard: Scrape members from one Telegram group with optional features.
 
 #### Change your proxy with this command:
-```
+```python
 client = TelegramClient(
     phone,
     api_id,
