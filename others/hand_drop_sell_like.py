@@ -1,6 +1,7 @@
 import time
 from instabot import API
-
+from tqdm import tqdm
+import random
 
 LINK_FILE = 'sample_file.txt'
 USERNAME = 'username'
@@ -16,8 +17,7 @@ def read_links():
 instabot = API()
 instabot.login(	username = USERNAME, password = PASSWORD)
 
-for i in read_links():
-	instabot.like_medias(i[28:],1)
-	# print(i[28])
-
-
+for i in tqdm(qread_links()):
+	instabot.like(i[28:])
+	time.sleep(random.randint(5,8))
+print('BACK to telegram group and DROP your link')
