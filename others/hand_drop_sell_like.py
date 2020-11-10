@@ -3,8 +3,8 @@ from instabot import API
 
 
 LINK_FILE = 'sample_file.txt'
-USERNAME = 'nhnam97'
-PASSWORD = 'nguyennam'
+USERNAME = 'username'
+PASSWORD = 'passwd'
 
 def read_links():
 	with open(LINK_FILE) as f:
