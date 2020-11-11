@@ -17,9 +17,9 @@ webdriver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
 sleep(3)
 
 username = webdriver.find_element_by_name('username')
-username.send_keys('0827dream')
+username.send_keys('usrname')
 password = webdriver.find_element_by_name('password')
-password.send_keys('nguyenhnam')
+password.send_keys('passwd')
 
 
 button_login = webdriver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button/div')
