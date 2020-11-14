@@ -13,21 +13,20 @@ import logging
 from telethon.tl.types import BotInlineResult
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from get_mess import get_mes
 from telegram.bot import *
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import telegram.message
 import telegram.chat
 import datetime
 import time
-from check_follow import check_follow_yet, check_profile
+from check_follow import check_follow_yet
 # declare constant
 
 TOKEN = '1098222229:AAE27CLsIN1xPwoDcjrBbz-z34lualgzbB4'
 GROUP = '@follownetwork30'
 FILE = 'user.txt'
 GROUP_TYPE = 'Dx30'
-
+SOURCE = 'https://www.instagram.com/'
 
 def get_links_from_file(get_username=False):
     try:
@@ -62,26 +61,28 @@ ad='🔥 Get more likes & comments by joining our other groups👇 \n \
 ❤️Happy engaging❤️ \n \
 🚀Viral Network🚀'
 
-keyboard = [[InlineKeyboardButton("✅   Rules   ✅", url='https://t.me/hoai97nambot', callback_data='1'),
+keyboard = [[InlineKeyboardButton("🔥   Rules   🔥", url='https://t.me/viralnetworkchannel', callback_data='1'),
                  InlineKeyboardButton("📄   List    📄", url='https://t.me/hoai97nambot',callback_data='2')],
 
                 [InlineKeyboardButton("💎   Premium User    💎", url='https://t.me/johntendo', callback_data='3')]]
 
 reply_markup = InlineKeyboardMarkup(keyboard)
 
-list_markup = [[InlineKeyboardButton("🚀 Dx30 Follow chain 🚀", url='https://t.me/follownetwork30')]]
+list_markup = [[InlineKeyboardButton("🚀 Dx30 Follow Group 🚀", url='https://t.me/follownetwork30')]]
 reply_markup1 = InlineKeyboardMarkup(list_markup)
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    m=''
+    m='📋 Profiles List 📋 \n Follow the following users to join the list\n'
     k=get_list()
     for i in k:
         m=m+ '\n'+i
+    m=m+'\n\n ➖➖➖➖➖➖➖➖➖➖\nWhen you’re done, drop your instagram profile in this format:\n\
+        Example: dx30 taylorswift or Dx30 taylorswift'
     send_to_destination(update.message.from_user.id, m)
     auto_delete_message(update.message.message_id)    
-
+    return 0
 
 def help_command(update, context):
     """Send a message when the command /help is issued."""   
@@ -98,14 +99,14 @@ def echo(update, context): # important info in this function
    
     if aa[:4] == 'dx30' or aa[:4] == 'Dx30':
         # check bunch of of conditions
-        if get_and_extract() and check_profile_link(aa) and check_repost(aa[31:]):
+        if check_repost(aa[5:]) and get_and_extract(aa[5:]):
             tele_usr='@'+ update.message.from_user.username
             bot_push_message(aa,tele_usr)
             # tidy user's message
             time.sleep(5)
             auto_delete_message(update.message.message_id)
         else:
-            update.message.reply_text('Please check following reasons: \
+            update.message.reply_text('Please check following reasons:\n \
                 ❗️ No enough follow \n \
                 ❗️ Input link with non-exist profile \n \
                 ❗️ Wrong syntax',reply_markup=reply_markup1)
@@ -113,8 +114,8 @@ def echo(update, context): # important info in this function
             time.sleep(5)
             auto_delete_message(update.message.message_id+1)
     # auto drop functions
-    elif check_profile_link(aa) and aa[:4]=='drop' and check_repost(aa[31:]):
-        bot_push_message(aa,'🌟Auto Drop')   
+    elif aa[:4]=='drop' and check_repost(aa[5:]):
+        bot_push_message(aa,'@'+update.message.from_user.username,auto_drop=True)   
         auto_delete_message(update.message.message_id)     
     else:
         update.message.reply_text('Wrong syntax ❗️❗️❗️ \n Please check again or read our rules',reply_markup=reply_markup1) 
@@ -132,25 +133,19 @@ def auto_send_message(st):
     obj=Bot(token=TOKEN)
     obj.send_message(GROUP,st,parse_mode='Markdown',disable_web_page_preview=True,reply_markup=reply_markup)
 
-def bot_push_message(link, user):
+def bot_push_message(link, user,auto_drop=False):
     #trim input link
-    if link[-1] =='/':
-        link=link[:-1]
     obj=Bot(token=TOKEN)
-    sub_link = link[link.find('com/')+4:]
-    me='👤 '+user+ ' ✅ '+' Dx30 [{}]({})'.format(sub_link,link[5:])
+    sub_link = link[5:]
+    link = 'https://www.instagram.com/' + sub_link
+    if auto_drop == True:
+        # auto drop
+        me='🌟 '+user+ ' ✅ '+' Dx30 [{}]({})'.format(sub_link,link)
+    else: 
+        me='👤 '+user+ ' ✅ '+' Dx30 [{}]({})'.format(sub_link,link)
     print(me)
     obj.send_message(GROUP,me, parse_mode='Markdown',disable_web_page_preview=True,reply_markup=reply_markup)
 # this scripts used for testing 👤entrepreneurs_club01 ✅
-def bot_push_message_v2(i_usr, t_usr, auto_drop=False):
-    obj=Bot(token=TOKEN)
-    link = 'https://www.instagram.com/' + i_usr
-    if auto_drop == True:
-        # auto drop
-        me='👤 '+t_usr+ ' ✅ '+' Dx30 [{}]({})'.format(i_usr,link)
-    else: 
-        me='👤 '+t_usr+ ' ✅ '+' Dx30 [{}]({})'.format(i_usr,link)
-    obj.send_message(GROUP,me, parse_mode='Markdown',disable_web_page_preview=True,reply_markup=reply_markup)
 
 def auto_delete_message(mess_id):
     obj=Bot(token=TOKEN)
@@ -167,9 +162,9 @@ def extract_usr(a):
         lit.append(c[c.find('com/')+4:])
     return lit
 
-def get_and_extract():
+def get_and_extract(prf):
     lit=get_links_from_file(get_username=True)
-    r=check_follow_yet(lit)
+    r=check_follow_yet(prf,lit)
     return r
 
 def check_repost(usrname_in_repost_link):
@@ -179,15 +174,6 @@ def check_repost(usrname_in_repost_link):
         return 0
     return 1
 
-def check_profile_link(link):
-    # check valid instagram url from user
-    if link.find('https://www.instagram.com/') and check_profile(link[31:]):
-        return 1
-    return 0
-def check_profile_link_v2(i_usr):
-    if check_profile(i_usr):
-        return 1
-    return 0
 def send_notify(content,mess_id):
     obj=Bot(token=TOKEN)
     try:
@@ -215,6 +201,10 @@ def main():
     dp.add_handler(CommandHandler("help", help_command))
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+    #dp.add_handler(MessageHandler(Filters.regex('^1$'),start))
+    #conv_handler=ConversationHandler(entry_points=[CommandHandler('start',start)],\
+    #    states={0:[CallbackQueryHandler(start,pattern='^1$')]},fallbacks=[CommandHandler('start',start)])
+    #dp.add_handler(conv_handler)
     # Start the Bot
     updater.start_polling()
 
