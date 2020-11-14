@@ -30,7 +30,7 @@ for i in fl:
 print(type(fl))    
 print(fl[0]['username'])
 #--------------------------------------------------------
-'''
+
 def get_latest_follower(list_1):
     latest_follower_list=[]
     for i in list_1:
@@ -41,8 +41,10 @@ def get_latest_follower(list_1):
         API.getUserFollowers(uid)
         latest_follower_list.append(API.LastJson['users'][0]['username'])
     return latest_follower_list
-
+'''
 def check_follower_step2(profile,list_1):
+    API = InstagramAPI("nokia51plus", "nguyenhnam")
+    API.login()
     check_in=[]
     check_in2 = []
     prf=False
@@ -54,14 +56,12 @@ def check_follower_step2(profile,list_1):
         API.getUserFollowers(uid)
         k = API.LastJson['users']
         check_in.append(str(k).find(i))
-        check_in2.append(k[0]['username'])
+        check_in2.append(k[0]['username']) # 0 follower will be rejected
     if API.searchUsername(profile):
         prf = True
     return check_in, check_in2, prf
 # list 1 is target user given to user who call '/list' command
 def check_follow_yet(profile, list1): 
-    API = InstagramAPI("nokia51plus", "nguyenhnam")
-    API.login()
 
     tmp, tmp2, prf = check_follower_step2(profile, list1)
     print(tmp)
@@ -76,7 +76,7 @@ def check_follow_yet(profile, list1):
             print('acceptable')
             return 1
     return 0
-
+"""
 def check_profile(profile):
     API = InstagramAPI("nokia51plus", "nguyenhnam")
     API.login()
@@ -84,3 +84,6 @@ def check_profile(profile):
         return 1
     else:
         return 0
+"""
+#a=check_follow_yet('nhnam97',['nhnam97','11ndc'])
+#print(a)
