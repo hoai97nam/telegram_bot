@@ -42,15 +42,25 @@ def get_latest_follower(list_1):
         latest_follower_list.append(API.LastJson['users'][0]['username'])
     return latest_follower_list
 '''
+from random import randint
+list_acc = ['0827dream','nokia51plus','11ndc','tnt12dck']
+STATE = list_acc[0]
+
 def check_follower_step2(profile,list_1):
-    API = InstagramAPI("nokia51plus", "nguyenhnam")
+    global STATE
+    buck=list_acc[randint(0,len(list_acc)-1)]
+    while buck==STATE:
+        buck=list_acc[randint(0,len(list_acc)-1)]
+    STATE = buck
+    print(STATE)
+    API = InstagramAPI(STATE, "nguyenhnam")
     API.login()
     check_in1=[]
     check_in2 = []
     prf=False
     for i in list_1:
         API.searchUsername(i)
-        # print(API.LastJson['user']['pk'])
+        #print(API.LastJson)
         uid=API.LastJson['user']['pk']
         #get user followings
         API.getUserFollowers(uid)
