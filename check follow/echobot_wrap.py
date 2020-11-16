@@ -84,6 +84,18 @@ def start(update, context):
     auto_delete_message(update.message.message_id)    
     return 0
 
+def list_command(update, context):
+    """Send a message when the command /start is issued."""
+    m='📋 Profiles List 📋 \n Follow the following users to join the list\n'
+    k=get_list()
+    for i in k:
+        m=m+ '\n'+i
+    m=m+'\n\n ➖➖➖➖➖➖➖➖➖➖\nWhen you’re done, drop your instagram profile in this format:\n\
+        Example: dx30 taylorswift or Dx30 taylorswift'
+    send_to_destination(update.message.from_user.id, m)
+    auto_delete_message(update.message.message_id)    
+    return 0
+
 def help_command(update, context):
     """Send a message when the command /help is issued."""   
     update.message.reply_text(str(update.message.message_id) +'-'+ \
@@ -198,7 +210,7 @@ def main():
 
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", help_command))
+    dp.add_handler(CommandHandler("list", list_command))
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
     #dp.add_handler(MessageHandler(Filters.regex('^1$'),start))
