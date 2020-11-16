@@ -18,10 +18,15 @@ client.connect()
 if not client.is_user_authorized():
     client.send_code_request(phone)
     client.sign_in(phone, input('Enter the code: '))
-
+ 
 input_file = sys.argv[1]
+temp = sys.argv[2]
+group = int(sys.argv[3])
+ 
+input_file = pd.read_excel(input_file)
+input_file.to_csv("./temp100.csv", index = None, header=True)
 users = []
-with open(input_file, encoding='UTF-8') as f:
+with open(temp, encoding='UTF-8') as f:
     rows = csv.reader(f,delimiter=",",lineterminator="\n")
     next(rows, None)
     for row in rows:
@@ -60,11 +65,11 @@ Automatically add in target group by using unique group id
 k = 0
 print(len(groups))
 for i in range(len(groups)):
-    if groups[i].id == 1211589948: # group id for target group
+    if groups[i].id == group: # group id for target group
         k = i
         break
     
-print("You are adding in ",groups[k].title)
+print("87 You are adding in ",groups[k].title)
 print("Group ID: ",groups[k].id)
 #print("",groups[k].access_hash)
 target_group_entity = InputPeerChannel(groups[k].id,groups[k].access_hash)
@@ -76,7 +81,7 @@ for user in users:
         """
         Numbering member for adding
         """
-        print ("{}. Adding {}".format(i, i) # this location "i"
+        print ("{}. Adding {}".format(i, i)) # this location "i"
         """
         Auto add member by username
         """
@@ -85,12 +90,13 @@ for user in users:
         user_to_add = client.get_input_entity(user['username'])
         client(InviteToChannelRequest(target_group_entity,[user_to_add]))
         
-        print("Waiting 60 Seconds...")
-        time.sleep(60) #sleep 60 instead 60
+        print("Waiting 28 Seconds...")
+        time.sleep(28) #sleep 60 instead 60
         
         i = i + 1   # this location increases counting unit
     except PeerFloodError:
-        print("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
+        print("1. Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
+        sys.exit(1)
     except UserPrivacyRestrictedError:
         print("The user's privacy settings do not allow you to do this. Skipping.")
     except:
@@ -100,4 +106,3 @@ for user in users:
 
 end = time.time()
 print("spending time:",(end-start))
-
