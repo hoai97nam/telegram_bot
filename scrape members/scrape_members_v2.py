@@ -6,9 +6,9 @@ import time
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
 
-api_id = 1324758
-api_hash = '2dab5e95d688ddfed63daf529d215e98'
-phone = '+84768458782'
+api_id = '<api_id>'
+api_hash = '<api_hash>'
+phone = '<phone_number>'
 client = TelegramClient(phone, api_id, api_hash)
 
 client.connect()
