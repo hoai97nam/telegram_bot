@@ -1,18 +1,6 @@
 from telethon.sync import TelegramClient
 import csv
-from telethon.sync import TelegramClient
 
-
-def getMessage(client, target_group,n):
-    chats =client.get_messages(target_group, n) # n number of messages to be extracted
-# Get message id, message, sender id, reply to message id, and timestamp
-    with open("messages.csv","w",encoding='UTF-8') as f:
-        writer = csv.writer(f,delimiter=",",lineterminator="\n")
-        writer.writerow(['id','message'])
-        for chat in chats:
-            writer.writerow([chat.id, chat.message])
-    print('finish messages')
-            
 api_id = 1324758
 api_hash = '2dab5e95d688ddfed63daf529d215e98'
 phone = '+84768458782'
@@ -64,8 +52,6 @@ for g in groups:
 
 g_index = input("Enter a Number: ")
 target_group=groups[int(g_index)]
-
-getMessage(client,target_group, 20)
 
 print('Fetching Members...')
 all_participants = []
