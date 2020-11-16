@@ -1,6 +1,6 @@
 ### 💥 Adding members 
 
-✔ To group 
+    ✔ To group 
 
-✔ To channel 
+    ✔ To channel 
 ### 💥 Get concise info with add member ver. 2
