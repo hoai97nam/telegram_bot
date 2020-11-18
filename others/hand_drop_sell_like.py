@@ -1,3 +1,7 @@
+"""
+in case of like function in instabot is not working right
+"""
+
 import time
 from instabot import API
 from tqdm import tqdm
