@@ -1,4 +1,8 @@
-# from instabot_functions import log_in,update_followers,unfollowing_of_accounts_followed_by_bot,explore_hashtag,sleep,datetime,np
+"""
+1. This file is used for auto like many Instagram posts, work with text file
+2. This file extract from Instabot repository or forked repo (https://github.com/hoai97nam/InstaBot/tree/instabot-custom)
+3. instabot-custom is added like media function
+"""
 from instabot_functions import like_medias,log_in
 import warnings 
 warnings.filterwarnings("ignore") #f**k warnings
@@ -6,9 +10,9 @@ import instabot_data_api
 from instabot_data_api import dataAPI
 instabot_data_api.STORE_LOGS = True 
 
-user='0827dream'
-password='nguyenhnam'
-email='0827dream'
+user='username
+password='password'
+email='username'
 
 driver = log_in(email,password,user,for_aws=False,headless=True)
 ### If login failure, we cannot pursue the loop, we retry
