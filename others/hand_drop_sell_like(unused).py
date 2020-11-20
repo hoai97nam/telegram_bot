@@ -1,5 +1,6 @@
 """
 in case of like function in instabot is not working right
+due to library 'instabot'
 """
 
 import time
