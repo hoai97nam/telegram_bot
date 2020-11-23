@@ -5,7 +5,7 @@
 
 👉 Like tool for hand drop only.
 
-❌ Crash files: `hand_drop_sell_like(unused).py`, `insta_bot(unused).py`, `insta_bot_custom(unused).py`
+❌ Crash files: `insta_bot(unused).py`, `insta_bot_custom(unused).py`
 
 #### Reference Links:
 
