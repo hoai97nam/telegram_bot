@@ -11,6 +11,7 @@ from myigbot import MyIGBot
 LINK_FILE = 'sample_file.txt'
 USERNAME = 'username'
 PASSWORD = 'password'
+LIKE = False
 COMMENT = False
 
 bot = MyIGBot(USERNAME, PASSWORD)
@@ -23,9 +24,10 @@ def read_links():
 
 list_tmp=read_links()
 for i in tqdm(list_tmp):
-	bot.like(i[28:])
+	if LIKE:
+		bot.like(i[3:])
 	if COMMENT:
-    		bot.comment(i[28:],comment_text='Nice project !!!')
+    		bot.comment(i[3:],comment_text='Nice project !!!')
 	# print(i[28:])
 
 
