@@ -64,9 +64,13 @@ def check_follower_step2(profile,list_1):
         uid=API.LastJson['user']['pk']
         #get user followings
         API.getUserFollowers(uid)
-        k = API.LastJson['users']        
-        check_in1.append(k[0]['username']) # 0 follower will be rejected
-        check_in2.append(str(k).find(i))
+        k = API.LastJson['users']
+        try:
+            check_in1.append(k[0]['username']) # 0 follower will be rejected
+            check_in2.append(str(k).find(i))
+        except:
+            check_in1.append(0) # 0 follower will be rejected
+            check_in2.append(-1)
     if API.searchUsername(profile):
         prf = True
     return check_in1, check_in2, prf
