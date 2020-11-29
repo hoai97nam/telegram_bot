@@ -3,7 +3,9 @@
 
 👉 Maintain accounts
 
-👉 Like tool for hand drop only.
+👉 Like tool for hand drop only
+
+👉 [tool hand like](https://github.com/hoai97nam/InstaBot). Notice 3 files need edited
 
 ❌ Crash files: `insta_bot(unused).py`, `insta_bot_custom(unused).py`
 
