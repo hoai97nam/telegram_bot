@@ -6,9 +6,9 @@ import instabot_data_api
 from instabot_data_api import dataAPI
 instabot_data_api.STORE_LOGS = True 
 
-user='0827dream'
-password='nguyenhnam'
-email='0827dream'
+user='username'
+password='password'
+email='username'
 
 driver = log_in(email,password,user,for_aws=False,headless=True)
 ### If login failure, we cannot pursue the loop, we retry
