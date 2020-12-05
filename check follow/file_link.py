@@ -10,6 +10,7 @@ def update_file():
 i=1
 while True:
     update_file()
-    print(i)
+    if i%10000==0:
+        print(i)
     time.sleep(1)
     i+=1
