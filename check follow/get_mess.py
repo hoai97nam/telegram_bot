@@ -8,6 +8,7 @@ api_id = 1289229
 api_hash = 'bd7544a4727e8b03f5a7698dbf4394e5'
 phone = '+84368195865'
 client = TelegramClient(phone, api_id, api_hash)
+GROUP = 'Dx30 FOLLOW Viral Network'
 '''
 client.connect()
 if not client.is_user_authorized():
@@ -22,7 +23,7 @@ for dialog in client.iter_dialogs():
 def get_mes():   
     client.connect()
     mess=[]
-    for message in client.iter_messages('Testbot2',10,filter=InputMessagesFilterUrl):
+    for message in client.iter_messages(GROUP,30,filter=InputMessagesFilterUrl):
         m=[]
         #print(message.text.split(" ")[-1])
         tmp=message.text.split(" ")[-1]
