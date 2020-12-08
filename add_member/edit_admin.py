@@ -18,7 +18,7 @@ if not client.is_user_authorized():
     client.send_code_request(phone)
     client.sign_in(phone, input('Enter the code: '))
 
-input_file = sys.argv[1]
+# input_file = sys.argv[1]
 users = []
 
 # with open(input_file, encoding='UTF-8') as f:
@@ -68,10 +68,10 @@ target_group_entity = InputPeerChannel(target_group.id,target_group.access_hash)
 mode = int(input("Enter 1 to add by username or 2 to add by ID: "))
 i = 1 #testing numbering
 for user in users:
-    print ("{}. Adding {}".format(i, user['id'])) # this location "i"
+#     print ("{}. Adding {}".format(i, user['id'])) # this location "i"
     if mode == 1:
-        if user['username'] == "":
-            continue
+#         if user['username'] == "":
+#             continue
         user_to_add = client.get_input_entity(user['username'])
         # print(user_to_add)
         client.edit_admin(target_group_entity,user['username'],is_admin=True)
