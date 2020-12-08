@@ -21,16 +21,16 @@ if not client.is_user_authorized():
 input_file = sys.argv[1]
 users = []
 
-with open(input_file, encoding='UTF-8') as f:
-    rows = csv.reader(f,delimiter=",",lineterminator="\n")
-    next(rows, None)
-    for row in rows:
-        user = {}
-        user['username'] = row[0]
-        user['id'] = int(row[1])
-        user['access_hash'] = int(float(row[2])) # changing something in data type
-        user['name'] = row[3]
-        users.append(user)
+# with open(input_file, encoding='UTF-8') as f:
+#     rows = csv.reader(f,delimiter=",",lineterminator="\n")
+#     next(rows, None)
+#     for row in rows:
+#         user = {}
+#         user['username'] = row[0]
+#         user['id'] = int(row[1])
+#         user['access_hash'] = int(float(row[2])) # changing something in data type
+#         user['name'] = row[3]
+#         users.append(user)
 
 chats = []
 last_date = None
