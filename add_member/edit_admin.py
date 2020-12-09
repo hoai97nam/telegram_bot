@@ -18,19 +18,7 @@ if not client.is_user_authorized():
     client.send_code_request(phone)
     client.sign_in(phone, input('Enter the code: '))
 
-# input_file = sys.argv[1]
 users = []
-
-# with open(input_file, encoding='UTF-8') as f:
-#     rows = csv.reader(f,delimiter=",",lineterminator="\n")
-#     next(rows, None)
-#     for row in rows:
-#         user = {}
-#         user['username'] = row[0]
-#         user['id'] = int(row[1])
-#         user['access_hash'] = int(float(row[2])) # changing something in data type
-#         user['name'] = row[3]
-#         users.append(user)
 
 chats = []
 last_date = None
@@ -68,17 +56,10 @@ target_group_entity = InputPeerChannel(target_group.id,target_group.access_hash)
 mode = int(input("Enter 1 to add by username or 2 to add by ID: "))
 i = 1 #testing numbering
 for user in users:
-#     print ("{}. Adding {}".format(i, user['id'])) # this location "i"
     if mode == 1:
-#         if user['username'] == "":
-#             continue
-        user_to_add = client.get_input_entity(user['username'])
-        # print(user_to_add)
-        client.edit_admin(target_group_entity,user['username'],is_admin=True)
-    elif mode == 2:
-        user_to_add = InputPeerUser(user['id'], user['access_hash'])
+        client.edit_admin(target_group_entity,user,is_admin=True, add_admins=True)
     else:
         sys.exit("Invalid Mode Selected. Please Try Again.")
     client(InviteToChannelRequest(target_group_entity,[user_to_add]))
-    print("Waiting 60 Seconds...")
-    time.sleep(20) #sleep 900 instead 60
+    print("Waiting 10 Seconds...")
+    time.sleep(10) #sleep 900 instead 60
