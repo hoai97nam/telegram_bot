@@ -1,4 +1,4 @@
-## :page_with_curl: This site contains Check follow source:
+## :page_with_curl: This site contains Check follow source: (Bot)
 :point_right: Get latest urls in group [file](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/get_mess.py).
 
 :point_right: Write in to [.txt](https://github.com/hoai97nam/telegram_bot/blob/master/check%20follow/file_link.py) file.
